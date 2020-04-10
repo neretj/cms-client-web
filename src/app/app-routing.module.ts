@@ -1,11 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserFormComponent } from './user-form/user-form.component';
+import { ViewMainComponent } from './view-main/view-main.component';
 
 const routes: Routes = [
-  { path: 'users', component: UserListComponent },
-  { path: 'adduser', component: UserFormComponent }
+  {
+    path: '',
+    component: ViewMainComponent,
+    children: [
+      {
+        path: 'home',
+        loadChildren: () => import('./views/views.module').then(m => m.ViewsModule)
+      }
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
 ];
 
 @NgModule({

@@ -1,0 +1,27 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">View</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.surname }}</td>
+          <td><button class="btn btn-primary" routerLink="./detail/{{user.id}}">View</button></td>
+        <td><button class="btn btn-warning" routerLink="./edit/{{user.id}}">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="onDelete(user.id)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+     <div><button class="btn btn-success btn-lg" routerLink="./create">New user</button></div>
+  </div>
+</div>

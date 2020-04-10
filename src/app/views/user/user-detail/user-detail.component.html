@@ -1,0 +1,9 @@
+<div *ngIf="user">
+  <div class="container">
+    <p><b>User name: </b>{{user.name}}</p><br>
+    <p><b>User surname: </b>{{user.surname}}</p>
+    <div>
+      <button class="btn btn-primary" (click)="goBack()">Return</button>
+    </div>
+  </div>
+</div>
